@@ -1,0 +1,48 @@
+.button-outer {
+  @include padding(15px, 50px, 15px, 50px);
+  @include font-size(16px);
+  color: $white-color;
+  @include border-radius(5px);
+  @include transition();
+  display: inline-block;
+  text-align: center;
+
+  @include breakpoint(lp) {
+    @include padding(10px, 50px, 10px, 50px);
+  }
+
+  &.border-radius-large {
+    @include border-radius(35px 0 35px 35px);
+    @include padding(20px, 45px, 20px, 45px);
+  }
+  &.shadow {
+    @include button-shadow();
+  }
+  &.no-shadow {
+    box-shadow: none;
+  }
+  &:hover {
+    @include button-hover();
+  }
+}
+
+.button--secondary {
+  @include background-transition($black-color, $brand-second-color, true);
+  &:hover {
+    color: $white-color;
+  }
+}
+.button--primary {
+  @include background-transition($dark-grey-color, $brand-color, true);
+  color: $white-color !important;
+  &:hover {
+    color: $white-color;
+  }
+}
+.button--dark {
+  @include background-transition($brand-color, $dark-grey-color, true);
+  color: $white-color !important;
+  &:hover {
+    color: $white-color;
+  }
+}

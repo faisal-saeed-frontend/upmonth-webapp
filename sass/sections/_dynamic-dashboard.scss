@@ -1,0 +1,36 @@
+%nav-pills {
+  .nav-link {
+    background: none;
+    color: $grey-color-2;
+    text-transform: capitalize;
+    @include margin(0, 0, 0, 0);
+    @include padding(20px, 40px, 20px, 40px);
+    position: relative;
+    text-align: left;
+    @include transition;
+    @include border-radius(50px);
+    h4 {
+      @include font-size(24px);
+    }
+    p {
+      @include font-size(16px);
+      font-family: $museo_sans300;
+    }
+
+    &:hover {
+      color: $white-color;
+      background: $brand-color;
+    }
+
+    &.active {
+      color: $white-color;
+      background: rgba($brand-color, 0.1);
+    }
+  }
+}
+
+.dynamic-dashboard {
+  .nav-pills {
+    @extend %nav-pills;
+  }
+}

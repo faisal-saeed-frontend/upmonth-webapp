@@ -1,0 +1,86 @@
+.section-nav {
+  // height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  // grid-template-rows: 250px 250px 250px 250px 250px 250px;
+  grid-gap: 1rem;
+
+  &__link {
+    @include border-radius(8px);
+    border: 1px solid $border-color;
+    color: $dark-grey-color;
+    @include padding(40px, 40px, 40px, 40px);
+    @include transition;
+    @include flex-center-horiz;
+    flex-direction: column;
+
+    h3 {
+      font-family: $museo_sans700;
+      @include font-size(31px);
+
+      @include breakpoint(lp) {
+        @include font-size(24px);
+      }
+    }
+    p {
+      @include font-size(24px);
+
+      @include breakpoint(lp) {
+        @include font-size(20px);
+      }
+    }
+    &:hover {
+      background: $brand-color;
+      color: $white-color;
+    }
+  }
+  &--link-a {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    height: 450px;
+
+    @include breakpoint(lp) {
+      height: 350px;
+    }
+  }
+  &--link-b {
+    grid-column: 1;
+    grid-row: 3;
+    height: 250px;
+    @include breakpoint(lp) {
+      height: 150px;
+    }
+  }
+  &--link-c {
+    grid-column: 2;
+    grid-row: 1;
+    height: 250px;
+    @include breakpoint(lp) {
+      height: 150px;
+    }
+  }
+  &--link-d {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+    height: 450px;
+    @include breakpoint(lp) {
+      height: 350px;
+    }
+  }
+  &--link-e {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    height: 450px;
+    @include breakpoint(lp) {
+      height: 350px;
+    }
+  }
+  &--link-f {
+    grid-column: 3;
+    grid-row: 3;
+    height: 250px;
+    @include breakpoint(lp) {
+      height: 150px;
+    }
+  }
+}

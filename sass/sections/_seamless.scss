@@ -1,0 +1,78 @@
+.seamless {
+  // height: calc(100vh - 200px);
+  &__wrapper {
+    height: 100vh;
+    @include flex-center-vert;
+
+    .list-group {
+      display: flex;
+      flex-wrap: nowrap;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 10px;
+      @include transition;
+      &__item-blank {
+        @include border-radius(8px);
+        background: $light-grey-color;
+      }
+      &--item-a {
+        grid-column: 1;
+        grid-row: 1;
+        height: 300px;
+      }
+      &--item-b {
+        grid-column: 1;
+        grid-row: 2;
+        height: 300px;
+      }
+      &--item-c {
+        grid-column: 1;
+        grid-row: 3;
+        height: 60px;
+      }
+      &--item-d {
+        grid-column: 2;
+        grid-row: 1;
+        height: 60px;
+      }
+      &--item-e {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        height: 300px;
+        margin-top: 70px;
+      }
+      &--item-f {
+        grid-column: 2;
+        grid-row: 2 / span 2;
+        height: 300px;
+        margin-top: 70px;
+      }
+
+      &__link {
+        @include border-radius(8px);
+        background: $light-grey-color;
+        @include font-size(20px);
+        @include padding(40px, 40px, 40px, 40px);
+        @include margin(0, 0, 0, 0);
+        color: $grey-color-2;
+        font-family: $museo_sans700;
+        @include transition;
+        @include flex-center;
+        height: 300px;
+        text-align: center;
+        &:hover {
+          background: $dark-grey-color;
+          color: $white-color;
+          filter: blur(0) !important;
+          @include card-hover();
+        }
+      }
+
+      &:hover {
+        a {
+          filter: blur(5px);
+        }
+      }
+    }
+  }
+}

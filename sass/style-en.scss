@@ -1,0 +1,240 @@
+@import "base/reset", "base/typography";
+
+@import "partials/variables", "partials/mixins", "partials/layout";
+
+@import "layout/footer", "layout/header", "layout/menu";
+
+@import "sections/hero", "sections/email-documents", "sections/seamless",
+  "sections/fast-simple", "sections/secure-effecient", "sections/simple-free",
+  "sections/effecient-file-sharing", "sections/section-nav",
+  "sections/scrolling-items", "sections/testimonials",
+  "sections/dynamic-dashboard";
+
+@import "components/ui-elements", "components/modal";
+
+body {
+  font-family: $museo_sans500;
+
+  &.modal-active {
+    overflow: hidden;
+  }
+}
+h1,
+h2,
+h3 {
+  font-family: $museo_sans500;
+}
+.wow {
+  visibility: hidden;
+}
+
+a[href^="tel"] {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+.main-wrap {
+  background: $white-color;
+  position: relative;
+  margin: 0 0 300px;
+}
+
+section {
+  @include padding(100px, 0, 100px, 0);
+  @include margin(0, 0, 100px, 0);
+
+  .title-wrap {
+    @include flex-column;
+    @include margin(0, 0, 70px, 0);
+    &__title {
+      @include font-size(49px);
+      font-family: $museo_sans700;
+      @include margin(0, 0, 10px, 0);
+
+      @include breakpoint(lp) {
+        @include font-size(40px);
+      }
+    }
+    &__sub-title {
+      @include font-size(31px);
+      @include margin(0, 0, 10px, 0);
+
+      @include breakpoint(lp) {
+        @include font-size(24px);
+      }
+    }
+    &__description {
+      @include font-size(20px);
+      color: $grey-color-2;
+
+      @include breakpoint(lp) {
+        @include font-size(18px);
+      }
+    }
+    &.grey {
+      color: $dark-grey-color;
+    }
+    &.white {
+      color: $white-color;
+      .title-wrap__description {
+        color: $white-color;
+      }
+    }
+    &.left {
+      text-align: left;
+    }
+    &.center {
+      text-align: center;
+    }
+    &.nomargin {
+      @include margin(0, 0, 0, 0);
+    }
+  }
+  &.bg-grey {
+    background: $light-grey-color;
+  }
+  &.bg-dark {
+    background: $dark-grey-color;
+  }
+  &.nomargin {
+    @include margin(0, 0, 0, 0);
+  }
+  &.nopadding {
+    @include padding(0, 0, 0, 0);
+  }
+}
+
+.white-color-text {
+  color: $white-color;
+}
+.black-color-text {
+  color: $black-color;
+}
+.brand-color-text {
+  color: $brand-color;
+}
+.bold-text {
+  font-family: $museo_sans700;
+}
+
+@include breakpoint(sm) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    max-width: 1620px;
+  }
+}
+
+#reveal-elements {
+  display: flex;
+}
+.digit {
+  opacity: 0;
+  width: 20%;
+  transform: translateY(140px);
+}
+.digit-a {
+  transition: all 0.9s ease-out;
+}
+.digit-b {
+  transition: all 1.4s ease-out;
+}
+.digit-c {
+  transition: all 1.6s ease-out;
+}
+.digit-d {
+  transition: all 1.8s ease-out;
+}
+.digit-e {
+  transition: all 1.9s ease-out;
+}
+.digit.visible {
+  opacity: 1;
+  transform: none;
+}
+
+// #slide01,
+// #slide03,
+// #slide05 {
+//   background-color: #ffffff;
+// }
+
+// #intro,
+// #slide02,
+// #slide04 {
+//   background-color: #ededed;
+// }
+
+// .background-container {
+//   width: 100%;
+//   height: 100%;
+//   background: url(http://via.placeholder.com/1920x1080) center no-repeat;
+//   background-size: cover;
+//   z-index: 100;
+// }
+
+// .intro,
+// .slide {
+//   position: relative;
+//   overflow: hidden;
+//   height: 100vh;
+// }
+
+// .slide .pin-wrapper {
+//   width: 100%;
+//   height: 100%;
+// }
+
+// .slide .wrapper {
+//   position: absolute;
+//   top: 45%;
+//   left: 50%;
+// }
+
+// #slide02 .pin-wrapper,
+// #slide03 .pin-wrapper,
+// #slide04 .pin-wrapper,
+// #slide05 .pin-wrapper {
+//   transform: translateY(-100%);
+// }
+
+// .scrollmagic-pin-spacer {
+//   position: absolute !important;
+//   clip: rect(auto, auto, auto, auto);
+// }
+
+.main-text {
+  height: 100vh;
+  @include flex-center;
+  flex-direction: column;
+  text-align: center;
+  h2 {
+    font-family: $museo_sans700;
+    @include font-size(70px);
+    @include margin(0, 0, 50px, 0);
+    color: $black-color;
+
+    @include breakpoint(lp) {
+      @include font-size(50px);
+    }
+  }
+  h3 {
+    @include font-size(60px);
+    @include margin(0, 0, 80px, 0);
+    color: $black-color;
+
+    @include breakpoint(lp) {
+      @include font-size(35px);
+    }
+  }
+}

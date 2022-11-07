@@ -1,0 +1,222 @@
+.main-hero {
+  background: $dark-grey-color;
+  position: relative;
+  height: 100vh;
+
+  &__content {
+    @include flex-center;
+    flex-direction: column;
+    height: calc(100vh - 170px);
+
+    @include breakpoint(lp) {
+      height: calc(100vh - 270px);
+    }
+
+    .text-with-line {
+      position: relative;
+      @include font-size(20px);
+      @include margin(0, 0, 100px, 0);
+      color: $white-color;
+      &::before {
+        position: absolute;
+        bottom: -80px;
+        content: "";
+        height: 2px;
+        background: $white-color;
+        left: 50%;
+        width: 100px;
+        transform: translateX(-50%);
+
+        @include breakpoint(lp) {
+          bottom: -40px;
+        }
+      }
+    }
+
+    .main-title {
+      display: flex;
+      &__lg-text {
+        @include font-size(280px);
+        color: $white-color;
+        @include margin(0, 80px, 0, 0);
+
+        @include breakpoint(lp) {
+          @include font-size(200px);
+        }
+      }
+      .gradient-wrap {
+        display: flex;
+        flex-direction: column;
+        &__gradient-text {
+          @include font-size(280px);
+          font-family: $museo_sans700;
+          letter-spacing: 5px;
+          background: -webkit-linear-gradient(
+            45deg,
+            $white-color 25%,
+            $white-color 25%,
+            $brand-color 50%
+          );
+          -webkit-background-clip: text;
+          -webkit-text-stroke: 5px transparent;
+
+          @include breakpoint(lp) {
+            @include font-size(200px);
+          }
+        }
+        &__white-text {
+          display: block;
+          color: $white-color;
+          @include font-size(60px);
+          @include margin(-50px, 0, 0, 0);
+          font-family: $museo_sans100;
+          text-align: center;
+
+          @include breakpoint(lp) {
+            @include font-size(45px);
+          }
+        }
+      }
+    }
+  }
+
+  .hero-large-btn {
+    background: $brand-color;
+    color: $white-color;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include font-size(20px);
+    @include flex-center;
+    height: 70px;
+
+    @include breakpoint(lp) {
+      @include font-size(16px);
+    }
+
+    &:hover {
+      background: $brand-second-color;
+    }
+  }
+  .animated-mouse-wrap {
+    @include margin(0, 0, 80px, 0);
+    @include absolute-position(absolute, initial, 60px, 50px, initial);
+    @include flex-center-vert;
+    flex-direction: column;
+    .sroll-text {
+      text-transform: capitalize;
+      @include transform(rotate(-90deg));
+      display: block;
+      @include font-size(12px);
+      color: $white-color;
+      letter-spacing: 2px;
+      @include margin(0, 0, 10px, 0);
+    }
+    .mouse {
+      width: 26px;
+      height: 40px;
+      border-radius: 15px;
+      border: 1px solid $white-color;
+      position: relative;
+      overflow: hidden;
+      margin-top: 40px;
+      .roll {
+        @include absolute-position(absolute, 8px, 0, 0, 50%);
+        width: 4px;
+        @include margin(0, 0, 0, -2px);
+        height: 4px;
+        @include border-radius(4px) background: $white-color;
+        -webkit-animation: mouseScroll 0.8s cubic-bezier(0.7, 0, 0.3, 1)
+          infinite alternate;
+        animation: mouseScroll 0.8s cubic-bezier(0.7, 0, 0.3, 1) infinite
+          alternate;
+        z-index: 2;
+      }
+    }
+  }
+}
+
+@-webkit-keyframes mouseScroll {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(14px);
+    transform: translateY(14px);
+  }
+}
+@keyframes mouseScroll {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(14px);
+    transform: translateY(14px);
+  }
+}
+
+.upm-intro {
+  position: relative;
+  &__wrapper {
+    height: 100vh;
+    @include flex-center-vert;
+    .content {
+      &__left {
+        .upm-logo-lg {
+          width: 320px;
+          height: 320px;
+          @include margin(0, 0, -50px, 150px);
+
+          @include breakpoint(lp) {
+            width: 220px;
+            height: 220px;
+          }
+          img {
+            @include object-fit-cover;
+          }
+        }
+        h2 {
+          color: $grey-color-1;
+          @include margin(0, 0, 120px, 0);
+          @include font-size(39px);
+
+          @include breakpoint(lp) {
+            @include font-size(30px);
+          }
+        }
+        p {
+          color: $grey-color-2;
+          @include margin(0, 0, 20px, 0);
+          @include font-size(31px);
+
+          @include breakpoint(lp) {
+            @include font-size(20px);
+          }
+        }
+      }
+      &__right {
+        h4 {
+          color: $grey-color-1;
+          @include margin(0, 0, 50px, 0);
+          @include font-size(25px);
+        }
+        .list-group {
+          &__item {
+            color: $grey-color-2;
+            @include margin(0, 0, 25px, 0);
+            @include font-size(25px);
+
+            @include breakpoint(lp) {
+              @include font-size(18px);
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=500" />
+	<meta name="keywords"
+		content="ScrollMagic, example, scrolling, attaching, scrollbar, pin, pinning, fixed, sticky" />
+	<meta name="author" content="Jan Paepke (www.janpaepke.de)" />
+	<title>Sticky Elements (pinning) - Examples - ScrollMagic</title>
+
+</head>
+
+<body>
+	<div id="content-wrapper">
+		<div id="example-wrapper">
+			<div class="scrollContent">
+
+				<section class="demo">
+					<div id="trigger1">
+						<div class="content">
+							<div class="right">
+
+
+							</div>
+						</div>
+
+					</div>
+					<div id="pin1"></div>
+
+				</section>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/tracking.js"></script>
+	<script>
+		// init controller
+		var controller = new ScrollMagic.Controller();
+	</script>
+	<script>
+		$(function () { // wait for document ready
+			// build scene
+			var scene = new ScrollMagic.Scene({ triggerElement: "#trigger1", duration: 1300 })
+				.setPin("#pin1")
+				.addIndicators({ name: "1 (duration: 1300)" }) // add indicators (requires plugin)
+				.addTo(controller);
+		});
+	</script>
+</body>
+
+</html>

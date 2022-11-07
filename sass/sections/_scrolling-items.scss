@@ -1,0 +1,109 @@
+$list-a: $light-grey-color 0%, $light-grey-color 70%, transparent 100%;
+@mixin gradient($list-a) {
+  background: -webkit-linear-gradient($list-a);
+  background: -moz-linear-gradient($list-a);
+  background: -o-linear-gradient($list-a);
+  background: linear-gradient($list-a);
+}
+
+.main-content {
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  &::before {
+    position: sticky;
+    width: calc(100% -50%);
+    margin-left: 50%;
+    height: 400px;
+    content: "";
+    top: 0;
+    z-index: 99;
+    right: 0;
+    @include gradient($list-a);
+
+    @include breakpoint(lp) {
+      height: 300px;
+    }
+  }
+  &__left {
+    height: calc(100vh - 100px);
+    width: 20vw;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 120px;
+    @include flex-center;
+    flex-direction: column;
+
+    @include breakpoint(lp) {
+      width: 30vw;
+      top: 80px;
+    }
+
+    figure {
+      @include margin(0, 0, 40px, 0);
+      height: 300px;
+
+      @include breakpoint(lp) {
+        height: 200px;
+      }
+
+      img {
+        @include object-fit-cover;
+      }
+    }
+    h3 {
+      @include font-size(31px);
+
+      @include breakpoint(lp) {
+        @include font-size(20px);
+      }
+    }
+    h2 {
+      font-family: $museo_sans700;
+      @include margin(0, 0, 20px, 0);
+      @include font-size(40px);
+
+      @include breakpoint(lp) {
+        @include font-size(30px);
+      }
+    }
+    p {
+      @include font-size(20px);
+      color: $grey-color-2;
+
+      @include breakpoint(lp) {
+        @include font-size(16px);
+      }
+    }
+  }
+}
+
+.srolling-items {
+  padding: 0 6rem;
+  margin-left: auto;
+  margin-right: 0;
+  position: relative;
+  width: 50%;
+
+  @include breakpoint(lp) {
+    padding: 0;
+  }
+
+  &__item {
+    @include margin(0, 0, 230px, 0);
+    h4 {
+      @include font-size(39px);
+      @include margin(0, 0, 10px, 0);
+
+      @include breakpoint(lp) {
+        @include font-size(30px);
+      }
+    }
+    p {
+      @include font-size(20px);
+      color: $grey-color-2;
+    }
+  }
+}

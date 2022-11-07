@@ -1,0 +1,73 @@
+// colors
+$brand-color: #0f54fa;
+$brand-second-color: #262626;
+$black-color: #000; // black color
+$white-color: #fff; // white color
+
+$light-grey-color: #f6f6f6; // light grey
+$dark-grey-color: #262626; // dark grey
+
+$light-blue-color: #f3f7fd; // light blue
+$text-grey-color: rgba($black-color, 0.5);
+$dark-grey-color-shade: #666; // dark grey
+$dark-brown-color: #392a26; // dark grey
+
+$grey-color-1: #f6f6f6;
+$grey-color-2: #999999;
+$grey-color-3: #262626;
+$border-color: #cdd6e2;
+
+$museo_sans100: "museo_sans100";
+$museo_sans300: "museo_sans300";
+$museo_sans500: "museo_sans500";
+$museo_sans700: "museo_sans700";
+
+/* clearfix */
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+/* center block */
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* center vertically */
+@mixin center-vertically {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include prefix(transform, translate(-50%, -50%), "webkit" "ms");
+}
+
+//Padding mixin
+@mixin padding($top, $right, $bottom, $left) {
+  padding-top: $top;
+  padding-right: $right;
+  padding-bottom: $bottom;
+  padding-left: $left;
+}
+//Margin mixin
+@mixin margin($top, $right, $bottom, $left) {
+  margin-top: $top;
+  margin-right: $right;
+  margin-bottom: $bottom;
+  margin-left: $left;
+}
+
+@mixin card-shadow() {
+  box-shadow: 0 1px 5px 0 rgba($black-color, 0.1);
+}
+
+@mixin my-shadow() {
+  box-shadow: 0 1px 5px 0 rgba($black-color, 0.1);
+}
+
+@mixin card-hover-shadow() {
+  box-shadow: 0 5px 24px 0 rgba($black-color, 0.1);
+}

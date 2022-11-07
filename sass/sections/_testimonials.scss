@@ -1,0 +1,128 @@
+.client-testimonials {
+  .swiper-wrapper {
+  }
+  .client-info {
+    @include padding(100px, 50px, 50px, 50px);
+    @include flex-center-vert;
+    @include margin(0, 10px, 50px, 10px);
+    @include border-radius(8px);
+    position: relative;
+    border: 1px solid $border-color;
+    flex-direction: row;
+
+    &__avatar {
+      @include margin(0, 60px, 0, 0);
+      @include flex-center;
+      width: 200px;
+      height: 200px;
+      img {
+        @include object-fit-cover;
+      }
+    }
+    &__caption {
+      h4 {
+        @include margin(0, 0, 20px, 0);
+        @include font-size(24px);
+      }
+    }
+    &__comments {
+      @include font-size(16px);
+      @include margin(0, 0, 20px, 0);
+    }
+    &__name {
+      color: $dark-grey-color;
+      font-family: $museo_sans700;
+      @include font-size(22px);
+    }
+
+    &.reverse {
+      flex-direction: row-reverse;
+      .client-info__avatar {
+        @include margin(0, 0, 0, 60px);
+      }
+      .client-info__caption {
+        text-align: right;
+      }
+    }
+  }
+
+  .nav-tabs {
+    border-bottom: 0;
+    .nav-item {
+      @include margin(0, 50px, 0, 0);
+      button {
+        &.active {
+          .client-logos__logo-holder {
+            img {
+              filter: grayscale(0);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .client-logos {
+    @include flex-center-vert;
+    height: 100px;
+    flex-wrap: wrap;
+    &__logo-holder {
+      @include margin(0, 0, 0, 0);
+      height: 100px;
+      width: 210px;
+      @include flex-center;
+      img {
+        @include object-fit-contain;
+        filter: grayscale(100%);
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.client-logos .swiper-slide {
+  filter: grayscale(100%);
+  cursor: pointer;
+}
+
+.client-logos .swiper-slide-thumb-active {
+  filter: grayscale(0);
+  position: relative;
+  // &::before {
+  //   position: absolute;
+  //   top: 10px;
+  //   content: "";
+  //   left: 3px;
+  //   background: $border-color;
+  //   height: 2px;
+  //   width: 20px;
+  //   transform: rotate(45deg);
+  // }
+  // &::after {
+  //   position: absolute;
+  //   top: 10px;
+  //   content: "";
+  //   left: 16px;
+  //   background: $border-color;
+  //   height: 2px;
+  //   width: 20px;
+  //   transform: rotate(145deg);
+  // }
+}
+
+blockquote {
+  position: relative;
+  width: 80%;
+}
+
+blockquote:before {
+  position: absolute;
+  content: open-quote;
+  font-family: "Circular-Loom";
+  color: $grey-color-1;
+  @include font-size(625px);
+  z-index: -1;
+  left: -142px;
+  line-height: 308px;
+  top: -45px;
+}

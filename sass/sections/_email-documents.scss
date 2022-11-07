@@ -1,0 +1,76 @@
+.email-documents {
+  &__left {
+    position: relative;
+    .swiper-slide {
+      height: 650px;
+      background: $grey-color-1;
+      @include flex-center;
+      figure {
+        height: 100%;
+        @include padding(100px, 0, 100px, 0);
+        img {
+          @include object-fit-cover;
+        }
+      }
+    }
+  }
+  &__right {
+    display: flex;
+    flex-direction: column;
+    .swiper-thumbs {
+      .swiper-wrapper {
+        display: flex;
+        flex-direction: column;
+        .swiper-slide {
+          cursor: pointer;
+          opacity: 0.4;
+          width: 100% !important;
+          @include margin(0, 0, 40px, 0);
+          .item {
+            @include margin(0, 0, 0, 0);
+            @include transition;
+            @include padding(30px, 30px, 30px, 30px);
+            @include border-radius(8px);
+            &__title {
+              @include font-size(16px);
+              @include margin(0, 0, 20px, 0);
+              text-transform: capitalize;
+              color: $dark-grey-color;
+              font-family: $museo_sans700;
+            }
+            &__sub-title {
+              @include font-size(13px);
+            }
+
+            &:hover {
+              background: rgba($brand-color, 0.1);
+              .item__title {
+                color: $brand-color;
+              }
+            }
+          }
+
+          &.swiper-slide-thumb-active {
+            opacity: 1;
+            background: rgba($brand-color, 0.1);
+            @include border-radius(8px);
+            .item {
+              .item__title {
+                color: $dark-grey-color !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .pagination-a {
+    bottom: -20px;
+    .swiper-pagination-bullet {
+      width: 32%;
+      @include border-radius(10px);
+      height: 8px;
+    }
+  }
+}

@@ -1,0 +1,109 @@
+.fast-simple {
+  height: calc(100vh - 200px);
+  &__wrapper {
+    height: 100vh;
+    @include flex-center-vert;
+    flex-direction: column;
+
+    .modal-action-btn {
+      width: 380px;
+      height: 80px;
+      @include padding(0, 25px, 0, 35px);
+      @include border-radius(50px);
+      @include flex-center-vert;
+      justify-content: space-between;
+      span {
+        text-align: left;
+      }
+      i {
+        border-left: 1px solid $white-color;
+        @include padding(0, 0, 0, 20px);
+        &::before {
+          @include font-size(30px);
+        }
+      }
+    }
+  }
+}
+#fast-simple-modal {
+  .modal-body {
+    .sliding-item {
+      @include padding(0, 150px, 0, 150px);
+      @include flex-center;
+      flex-direction: row;
+      height: calc(100vh - 100px);
+      h2 {
+        font-family: $museo_sans700;
+        @include font-size(39px);
+      }
+      p {
+        @include margin(0, 0, 30px, 0);
+      }
+      figure {
+        border-left: 1px solid $border-color;
+        @include padding(0, 0, 0, 100px);
+        img {
+          width: 100%;
+        }
+      }
+    }
+    .swiper-button-prev {
+      width: 80px;
+      height: 80px;
+      background: rgba($grey-color-1, 0.75);
+      @include border-radius(50%);
+      &:after {
+        color: $brand-color;
+        @include font-size(20px);
+      }
+
+      &:hover {
+        background: $brand-color;
+        &:after {
+          color: $white-color;
+        }
+      }
+    }
+    .swiper-button-next {
+      width: 80px;
+      height: 80px;
+      background: rgba($grey-color-1, 0.75);
+      @include border-radius(50%);
+      &:after {
+        color: $brand-color;
+        @include font-size(20px);
+      }
+      &:hover {
+        background: $brand-color;
+        &:after {
+          color: $white-color;
+        }
+      }
+    }
+    .swiper-pagination-progressbar {
+      width: 240px;
+      bottom: 50px;
+      top: initial;
+      left: 100px;
+    }
+    .close-btn {
+      width: 180px;
+      height: 80px;
+      bottom: -100px;
+      z-index: 999;
+      @include padding(0, 25px, 0, 25px);
+      @include transition;
+      @include center(horizontal);
+      @include border-radius(50px);
+      @include flex-center-vert;
+      justify-content: space-between;
+      i {
+        border-left: 1px solid $white-color;
+        @include padding(0, 0, 0, 10px);
+        &::before {
+          @include font-size(30px);
+        }
+      }
+    }
+  }
+}
