@@ -1,8 +1,18 @@
 .seamless {
   // height: calc(100vh - 200px);
   &__wrapper {
-    height: 100vh;
-    @include flex-center-vert;
+    // height: 100vh;
+    // @include flex-center-vert;
+
+    @include breakpoint(sm) {
+      height: auto;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .title-wrap {
+      height: 100%;
+      @include flex-center-horiz;
+    }
 
     .list-group {
       display: flex;
@@ -11,9 +21,18 @@
       grid-template-columns: 1fr 1fr;
       grid-gap: 10px;
       @include transition;
+
+      @include breakpoint(sm) {
+        grid-template-columns: 1fr;
+        flex-wrap: wrap;
+      }
+
       &__item-blank {
         @include border-radius(8px);
         background: $light-grey-color;
+        @include breakpoint(sm) {
+          display: none;
+        }
       }
       &--item-a {
         grid-column: 1;
@@ -40,12 +59,22 @@
         grid-row: 1 / span 2;
         height: 300px;
         margin-top: 70px;
+        @include breakpoint(sm) {
+          margin-top: 0;
+          grid-column: 1;
+          grid-row: 3;
+        }
       }
       &--item-f {
         grid-column: 2;
         grid-row: 2 / span 2;
         height: 300px;
         margin-top: 70px;
+        @include breakpoint(sm) {
+          margin-top: 0;
+          grid-column: 1;
+          grid-row: 4;
+        }
       }
 
       &__link {

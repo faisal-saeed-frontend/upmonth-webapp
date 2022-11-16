@@ -629,6 +629,10 @@
     }
     .close-btn {
       bottom: 100px !important;
+
+      @include breakpoint(sm) {
+        bottom: 20px !important;
+      }
     }
   }
 }
@@ -639,6 +643,10 @@
   width: 100%;
   padding: 0 30%;
   position: relative;
+
+  @include breakpoint(sm) {
+    padding: 0;
+  }
   &::before {
     background: url(../images/modal-bg.png) no-repeat;
     background-size: 100%;
@@ -650,6 +658,10 @@
     height: 230px;
     opacity: 0;
     @include transition;
+    @include breakpoint(sm) {
+      width: 350px;
+      height: 180px;
+    }
   }
 
   label {
@@ -672,6 +684,7 @@
   .suggestion {
     @include flex-center;
     flex-direction: column;
+
     h3 {
       @include margin(0, 0, 20px, 0);
       @include font-size(25px);
@@ -679,6 +692,11 @@
     }
     ul {
       display: flex;
+
+      @include breakpoint(sm) {
+        flex-direction: column;
+      }
+
       li {
         @include margin(0, 20px, 0, 20px);
         color: #999;
@@ -700,8 +718,13 @@
   padding: 12px;
   border: 1px solid #cfd6e1;
   @include transition;
-
   width: fit-content;
+
+  @include breakpoint(sm) {
+    left: 41%;
+    transform: translateX(-31%);
+  }
+
   .fixed-action-btns {
     display: flex;
     flex-wrap: wrap;

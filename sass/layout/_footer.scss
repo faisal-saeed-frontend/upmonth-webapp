@@ -1,63 +1,85 @@
 footer {
-  background: #2b2d42;
+  background: $dark-grey-color;
   position: fixed;
   bottom: 0;
-  height: 300px;
+  height: 600px;
   width: 100%;
+  z-index: -1;
+
+  @include breakpoint(sm) {
+    position: inherit;
+    height: auto;
+  }
+  @include breakpoint(md) {
+    position: inherit;
+    height: auto;
+  }
 
   .footer-top {
-    background: #f5f5f5;
-    @include padding(70px, 0, 0, 0);
+    @include padding(70px, 0, 70px, 0);
 
-    @include breakpoint(sm) {
-      @include padding(30px, 0, 0, 0);
+    .title {
+      color: $white-color;
+      @include font-size(20px);
+      font-family: $museo_sans700;
+      @include margin(0, 0, 40px, 0);
     }
 
     .contact-info {
       @include margin(0, 0, 20px, 0);
 
       &__footer-logo {
-        background: url(../images/cata-color-logo@3x.png) no-repeat;
-        width: 178px;
-        height: 55px;
+        background: url(../images/new_upmonth_logo_blue.svg) no-repeat;
+        background-size: 85px 50px;
+        width: 85px;
+        height: 50px;
         display: block;
-        background-size: 178px 55px;
         @include margin(0, 0, 50px, 0);
-        @include breakpoint(sm) {
-          @include margin(0, 0, 30px, 0);
+      }
+
+      ul {
+        &.social-icons {
+          display: flex;
+          li {
+            @include margin(0, 15px, 0, 0);
+            a {
+              height: 50px;
+              width: 50px;
+              line-height: 50px;
+              @include border-radius(50%);
+              background: $brand-color;
+              color: $white-color;
+              text-align: center;
+              @include flex-center;
+              @include font-size(20px);
+              font-family: $museo_sans700;
+              &:hover {
+                background: $dark-grey-color;
+              }
+            }
+          }
         }
       }
-      span {
-        display: block;
-        color: $text-grey-color;
-        font-size: 16px;
+
+      p {
+        color: $white-color;
+        @include font-size(16px);
+        @include margin(0, 0, 50px, 0);
       }
     }
     .footer-links {
       @include breakpoint(sm) {
         @include margin(0, 0, 30px, 0);
       }
-      &__title {
-        color: $dark-grey-color;
-        font-size: 16px;
-        text-transform: uppercase;
-        font-family: $museo_sans700;
-        letter-spacing: 1px;
-        @include margin(0, 0, 20px, 0);
-
-        @include breakpoint(sm) {
-          @include margin(0, 0, 10px, 0);
-        }
+      p {
+        color: $white-color;
+        @include font-size(16px);
       }
       &__list-item {
-        @include margin(0, 0, 15px, 0);
-
-        @include breakpoint(sm) {
-          @include margin(0, 0, 5px, 0);
-        }
+        @include margin(0, 0, 10px, 0);
         a {
-          color: $text-grey-color;
-          font-size: 16px;
+          color: $white-color;
+          @include font-size(16px);
           position: relative;
           &:hover {
             color: $brand-color;
@@ -74,86 +96,33 @@ footer {
             background: $brand-color;
             top: 10px;
             left: 0;
-            @include transition(all 0.3s ease-out);
+            @include transition;
           }
         }
       }
     }
-
-    .footer-center {
-      border-top: solid 1px #ddd;
-      @include padding(20px, 0, 20px, 0);
-
-      ul {
-        &.social-icons {
-          @include breakpoint(sm) {
-            @include margin(0, 0, 30px, 0);
-          }
-
-          display: flex;
-          li {
-            @include margin(0, 15px, 0, 0);
-            a {
-              display: block;
-              height: 28px;
-              width: 28px;
-              line-height: 28px;
-              border-radius: 50%;
-              background: $brand-color;
-              color: $white-color;
-              text-align: center;
-              &:hover {
-                background: $dark-grey-color;
-              }
-            }
-          }
-        }
-      }
-
-      ul {
-        &.copyright-links {
-          display: flex;
-          justify-content: flex-end;
-
-          @include breakpoint(sm) {
-            justify-content: flex-start;
-            flex-wrap: wrap;
-          }
-
-          li {
-            @include margin(0, 40px, 0, 0);
-
-            @include breakpoint(sm) {
-              @include margin(0, 0, 10px, 0);
-              width: 100%;
-            }
-
-            a {
-              display: block;
-              font-size: 13px;
-              color: $black-color;
-              &:hover {
-                color: $brand-color;
-              }
-            }
-          }
-        }
+    .newsletter-wrap {
+      display: flex;
+      &__input {
+        background: $white-color;
+        @include border-radius(5px);
+        border: 1px solid $brand-color;
+        height: 53px;
+        @include padding(0, 10px, 0, 10px);
+        width: 100%;
+        @include margin(0, 10px, 0, 0);
       }
     }
   }
 
   .footer-copyright {
-    @include padding(20px, 0, 20px, 0);
-    color: $text-grey-color;
-    font-size: 12px;
-
+    border-top: solid 3px $border-color;
+    @include padding(40px, 0, 40px, 0);
+    color: $white-color;
     .copyright-text {
-      font-size: 15px;
-
-      @include breakpoint(sm) {
-        @include margin(10px, 0, 0, 0);
-        display: block;
-      }
+      @include font-size(16px);
+      text-align: center;
+      display: block;
     }
   }
 }
@@ -162,7 +131,7 @@ footer {
   width: 50px;
   height: 50px;
   position: fixed;
-  z-index: 99;
+  z-index: 9999;
   @include border-radius(50%);
   bottom: 40px;
   right: 40px;

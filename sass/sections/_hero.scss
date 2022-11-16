@@ -3,6 +3,13 @@
   position: relative;
   height: 100vh;
 
+  @include breakpoint(sm) {
+    height: auto;
+  }
+  @include breakpoint(md) {
+    height: auto;
+  }
+
   &__content {
     @include flex-center;
     flex-direction: column;
@@ -12,22 +19,45 @@
       height: calc(100vh - 270px);
     }
 
+    @include breakpoint(sm) {
+      height: auto;
+      @include padding(50px, 0, 350px, 0);
+    }
+    @include breakpoint(md) {
+      height: auto;
+      @include padding(50px, 0, 350px, 0);
+      align-items: flex-start;
+    }
+
     .text-with-line {
       position: relative;
       @include font-size(20px);
       @include margin(0, 0, 100px, 0);
-      color: $white-color;
+      color: $grey-color-1;
+
+      @include breakpoint(sm) {
+        bottom: -40px;
+        @include font-size(16px);
+        text-align: center;
+      }
+
       &::before {
         position: absolute;
         bottom: -80px;
         content: "";
         height: 2px;
-        background: $white-color;
+        background: $grey-color-1;
         left: 50%;
-        width: 100px;
+        width: 200px;
         transform: translateX(-50%);
 
         @include breakpoint(lp) {
+          bottom: -40px;
+        }
+        @include breakpoint(sm) {
+          bottom: -40px;
+        }
+        @include breakpoint(md) {
           bottom: -40px;
         }
       }
@@ -35,13 +65,30 @@
 
     .main-title {
       display: flex;
+
+      @include breakpoint(sm) {
+        flex-direction: column;
+      }
+      @include breakpoint(md) {
+        flex-direction: column;
+      }
+
       &__lg-text {
         @include font-size(280px);
         color: $white-color;
         @include margin(0, 80px, 0, 0);
+        font-family: $museo_sans700;
 
         @include breakpoint(lp) {
           @include font-size(200px);
+        }
+        @include breakpoint(md) {
+          @include font-size(165px);
+          @include margin(0, 0, 0, 0);
+        }
+        @include breakpoint(sm) {
+          @include font-size(130px);
+          @include margin(0, 0, 0, 0);
         }
       }
       .gradient-wrap {
@@ -63,6 +110,13 @@
           @include breakpoint(lp) {
             @include font-size(200px);
           }
+          @include breakpoint(md) {
+            @include font-size(185px);
+            -webkit-text-stroke: 3px transparent;
+          }
+          @include breakpoint(sm) {
+            @include font-size(130px);
+          }
         }
         &__white-text {
           display: block;
@@ -75,6 +129,16 @@
           @include breakpoint(lp) {
             @include font-size(45px);
           }
+          @include breakpoint(sm) {
+            @include font-size(20px);
+            text-align: left;
+            @include margin(0, 0, 0, 0);
+          }
+          @include breakpoint(md) {
+            @include font-size(20px);
+            text-align: left;
+            @include margin(0, 0, 0, 0);
+          }
         }
       }
     }
@@ -86,15 +150,21 @@
     width: 100%;
     position: absolute;
     bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex-center;
     @include font-size(20px);
     @include flex-center;
     height: 70px;
 
     @include breakpoint(lp) {
       @include font-size(16px);
+    }
+    @include breakpoint(sm) {
+      @include font-size(16px);
+      text-align: center;
+    }
+    @include breakpoint(md) {
+      @include font-size(16px);
+      text-align: center;
     }
 
     &:hover {
@@ -106,6 +176,12 @@
     @include absolute-position(absolute, initial, 60px, 50px, initial);
     @include flex-center-vert;
     flex-direction: column;
+
+    @include breakpoint(sm) {
+      @include margin(0, 0, 80px, 0);
+      @include absolute-position(absolute, initial, 20px, 20px, initial);
+    }
+
     .sroll-text {
       text-transform: capitalize;
       @include transform(rotate(-90deg));
@@ -128,7 +204,8 @@
         width: 4px;
         @include margin(0, 0, 0, -2px);
         height: 4px;
-        @include border-radius(4px) background: $white-color;
+        @include border-radius(4px);
+        background: $white-color;
         -webkit-animation: mouseScroll 0.8s cubic-bezier(0.7, 0, 0.3, 1)
           infinite alternate;
         animation: mouseScroll 0.8s cubic-bezier(0.7, 0, 0.3, 1) infinite
@@ -136,17 +213,6 @@
         z-index: 2;
       }
     }
-  }
-}
-
-@-webkit-keyframes mouseScroll {
-  0% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-  100% {
-    -webkit-transform: translateY(14px);
-    transform: translateY(14px);
   }
 }
 @keyframes mouseScroll {
@@ -165,6 +231,14 @@
   &__wrapper {
     height: 100vh;
     @include flex-center-vert;
+
+    @include breakpoint(sm) {
+      height: auto;
+    }
+    @include breakpoint(md) {
+      height: auto;
+    }
+
     .content {
       &__left {
         .upm-logo-lg {
@@ -176,6 +250,17 @@
             width: 220px;
             height: 220px;
           }
+          @include breakpoint(sm) {
+            width: 150px;
+            height: 150px;
+            @include margin(0, 0, 30px, 0);
+          }
+          @include breakpoint(md) {
+            width: 150px;
+            height: 150px;
+            @include margin(0, 0, 30px, 0);
+          }
+
           img {
             @include object-fit-cover;
           }
@@ -186,7 +271,15 @@
           @include font-size(39px);
 
           @include breakpoint(lp) {
-            @include font-size(30px);
+            @include font-size(31px);
+          }
+          @include breakpoint(sm) {
+            @include font-size(31px);
+            @include margin(0, 0, 40px, 0);
+          }
+          @include breakpoint(md) {
+            @include font-size(31px);
+            @include margin(0, 0, 40px, 0);
           }
         }
         p {
@@ -197,6 +290,12 @@
           @include breakpoint(lp) {
             @include font-size(20px);
           }
+          @include breakpoint(sm) {
+            @include font-size(16px);
+          }
+          @include breakpoint(md) {
+            @include font-size(16px);
+          }
         }
       }
       &__right {
@@ -204,6 +303,15 @@
           color: $grey-color-1;
           @include margin(0, 0, 50px, 0);
           @include font-size(25px);
+
+          @include breakpoint(sm) {
+            @include font-size(16px);
+            @include margin(0, 0, 30px, 0);
+          }
+          @include breakpoint(md) {
+            @include font-size(16px);
+            @include margin(0, 0, 30px, 0);
+          }
         }
         .list-group {
           &__item {
@@ -213,6 +321,12 @@
 
             @include breakpoint(lp) {
               @include font-size(18px);
+            }
+            @include breakpoint(sm) {
+              @include font-size(16px);
+            }
+            @include breakpoint(md) {
+              @include font-size(16px);
             }
           }
         }

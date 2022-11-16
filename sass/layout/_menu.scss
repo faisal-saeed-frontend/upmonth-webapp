@@ -7,8 +7,20 @@
     @include breakpoint(lp) {
       height: 70px;
     }
+    @include breakpoint(sm) {
+      height: 70px;
+    }
+    @include breakpoint(md) {
+      height: 70px;
+    }
     .signin-btn {
       margin-left: auto;
+      @include breakpoint(sm) {
+        display: none;
+      }
+      @include breakpoint(md) {
+        display: none;
+      }
     }
   }
   &__menu {
@@ -22,14 +34,29 @@
     @include breakpoint(lp) {
       @include absolute-position(absolute, 25px, -50px, 0, initial);
     }
+
+    @include breakpoint(sm) {
+      position: fixed;
+      top: 25px;
+      right: 25px;
+      z-index: 999;
+    }
+    @include breakpoint(md) {
+      @include absolute-position(absolute, 25px, 0, 0, initial);
+    }
+
     span {
-      background: $white-color;
+      background: $brand-color;
       border: none;
       height: 1px;
       width: 100%;
       @include absolute-position(absolute, 0, 0, 0, 0);
       @include transition;
       cursor: pointer;
+
+      @include breakpoint(sm) {
+        background: $brand-color;
+      }
     }
     &:hover {
       .middle {
@@ -75,6 +102,12 @@
     overflow: hidden;
     z-index: 9;
     display: flex;
+
+    @include breakpoint(sm) {
+      position: fixed;
+      flex-direction: column;
+    }
+
     &.open {
       opacity: 10;
       visibility: visible;
@@ -82,6 +115,12 @@
 
       @include breakpoint(lp) {
         height: 70px;
+      }
+      @include breakpoint(md) {
+        height: 70px;
+      }
+      @include breakpoint(sm) {
+        height: 100%;
       }
 
       li {
@@ -97,6 +136,17 @@
       @include breakpoint(lp) {
         height: 70px;
       }
+      @include breakpoint(md) {
+        height: 70px;
+      }
+
+      @include breakpoint(sm) {
+        height: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        @include padding(20px, 0, 0, 0);
+      }
+
       .logo {
         background: url(../images/new_upmonth_logo_blue.svg) no-repeat;
         background-size: 85px 50px;
@@ -105,13 +155,34 @@
       }
       .overlay-menu {
         margin-left: auto;
+
+        @include breakpoint(sm) {
+          margin-left: inherit;
+          width: 100%;
+          @include padding(100px, 0, 0, 0);
+        }
+
+        @include breakpoint(md) {
+          margin-right: 50px;
+        }
+
         ul {
           @include flex-center-vert;
+
+          @include breakpoint(sm) {
+            flex-direction: column;
+          }
+
           li {
             @include margin(0, 30px, 0, 0);
             opacity: 0;
             top: 0;
             position: relative;
+
+            @include breakpoint(sm) {
+              @include margin(0, 0, 30px, 0);
+            }
+
             .nav-link {
               color: $dark-grey-color;
               @include font-size(16px);
@@ -137,6 +208,13 @@
             }
             &:last-child {
               @include margin(0, 0, 0, 150px);
+
+              @include breakpoint(sm) {
+                @include margin(0, 0, 0, 0);
+              }
+              @include breakpoint(md) {
+                @include margin(0, 0, 0, 0);
+              }
             }
           }
         }

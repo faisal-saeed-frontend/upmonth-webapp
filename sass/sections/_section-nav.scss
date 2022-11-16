@@ -2,8 +2,10 @@
   // height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  // grid-template-rows: 250px 250px 250px 250px 250px 250px;
   grid-gap: 1rem;
+  @include breakpoint(sm) {
+    grid-template-columns: 1fr 1fr;
+  }
 
   &__link {
     @include border-radius(8px);
@@ -14,12 +16,22 @@
     @include flex-center-horiz;
     flex-direction: column;
 
+    @include breakpoint(sm) {
+      @include padding(20px, 20px, 20px, 20px);
+    }
     h3 {
       font-family: $museo_sans700;
       @include font-size(31px);
+      @include margin(0, 0, 10px, 0);
 
       @include breakpoint(lp) {
         @include font-size(24px);
+      }
+      @include breakpoint(md) {
+        @include font-size(18px);
+      }
+      @include breakpoint(md) {
+        @include font-size(20px);
       }
     }
     p {
@@ -27,6 +39,14 @@
 
       @include breakpoint(lp) {
         @include font-size(20px);
+      }
+      @include breakpoint(md) {
+        @include font-size(16px);
+        line-height: 20px;
+      }
+      @include breakpoint(sm) {
+        @include font-size(14px);
+        line-height: 20px;
       }
     }
     &:hover {
@@ -42,6 +62,11 @@
     @include breakpoint(lp) {
       height: 350px;
     }
+    @include breakpoint(sm) {
+      height: auto;
+      grid-column: 1;
+      grid-row: 1;
+    }
   }
   &--link-b {
     grid-column: 1;
@@ -49,6 +74,11 @@
     height: 250px;
     @include breakpoint(lp) {
       height: 150px;
+    }
+    @include breakpoint(sm) {
+      height: auto;
+      grid-column: 1;
+      grid-row: 2;
     }
   }
   &--link-c {
@@ -58,6 +88,11 @@
     @include breakpoint(lp) {
       height: 150px;
     }
+    @include breakpoint(sm) {
+      height: auto;
+      grid-column: 1;
+      grid-row: 3;
+    }
   }
   &--link-d {
     grid-column: 2;
@@ -65,6 +100,11 @@
     height: 450px;
     @include breakpoint(lp) {
       height: 350px;
+    }
+    @include breakpoint(sm) {
+      height: auto;
+      grid-column: 2;
+      grid-row: 1;
     }
   }
   &--link-e {
@@ -74,6 +114,11 @@
     @include breakpoint(lp) {
       height: 350px;
     }
+    @include breakpoint(sm) {
+      height: auto;
+      grid-column: 2;
+      grid-row: 2;
+    }
   }
   &--link-f {
     grid-column: 3;
@@ -81,6 +126,11 @@
     height: 250px;
     @include breakpoint(lp) {
       height: 150px;
+    }
+    @include breakpoint(sm) {
+      height: auto;
+      grid-column: 2;
+      grid-row: 3;
     }
   }
 }

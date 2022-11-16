@@ -10,6 +10,9 @@
   @include breakpoint(lp) {
     @include padding(10px, 50px, 10px, 50px);
   }
+  @include breakpoint(md) {
+    @include padding(10px, 50px, 10px, 50px);
+  }
 
   &.border-radius-large {
     @include border-radius(35px 0 35px 35px);

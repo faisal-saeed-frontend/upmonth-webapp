@@ -1,0 +1,345 @@
+$list-b: $white-color 0%, $white-color 70%, transparent 100%;
+@mixin gradient($list-a) {
+  background: -webkit-linear-gradient($list-a);
+  background: -moz-linear-gradient($list-a);
+  background: -o-linear-gradient($list-a);
+  background: linear-gradient($list-a);
+}
+
+$list-c: $dark-grey-color 0%, $dark-grey-color 70%, transparent 100%;
+@mixin gradient($list-a) {
+  background: -webkit-linear-gradient($list-a);
+  background: -moz-linear-gradient($list-a);
+  background: -o-linear-gradient($list-a);
+  background: linear-gradient($list-a);
+}
+
+.pricing-wrap {
+  .subscription-wrap {
+    .sticky-box {
+      @include padding(30px, 0, 30px, 0);
+      background: $dark-grey-color;
+      opacity: 0;
+      &__content {
+        @include flex-center-vert;
+        color: $grey-color-1;
+
+        .sm-text {
+          @include font-size(20px);
+          @include margin(0, 30px, 0, 0);
+          white-space: nowrap;
+        }
+        .lg-text {
+          font-family: $museo_sans700;
+          @include font-size(72px);
+          @include margin(0, 50px, 0, 0);
+          display: flex;
+          align-items: flex-end;
+          line-height: 55px;
+          small {
+            font-family: $museo_sans500;
+            @include font-size(30px);
+          }
+        }
+        .button-outer {
+          white-space: nowrap;
+          @include margin(0, 50px, 0, 0);
+        }
+        p {
+          @include font-size(16px);
+        }
+      }
+    }
+
+    .left-col {
+      @include flex-center;
+      flex-direction: column;
+      text-align: center;
+      color: $grey-color-1;
+      height: 705px;
+      @include padding(100px, 40px, 65px, 40px);
+      background: $dark-grey-color;
+      @include border-radius(8px);
+      .sm-text {
+        @include font-size(20px);
+        @include margin(0, 0, 20px, 0);
+      }
+      .lg-text {
+        font-family: $museo_sans700;
+        @include font-size(72px);
+        @include margin(0, 0, 100px, 0);
+      }
+      p {
+        @include font-size(16px);
+        margin-top: auto;
+      }
+    }
+    .right-col {
+      position: relative;
+      height: 705px;
+
+      .items-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+        &__item {
+          @include border-radius(8px);
+          border: 1px solid $border-color;
+          @include flex-center-horiz;
+          flex-direction: column;
+          @include padding(30px, 50px, 30px, 50px);
+
+          h3 {
+            color: $dark-grey-color;
+            @include font-size(31px);
+            @include margin(0, 0, 30px, 0);
+          }
+          p {
+            color: $dark-grey-color;
+            @include font-size(16px);
+          }
+        }
+        &--item-a {
+          grid-column: 1;
+          grid-row: 1;
+          height: 300px;
+        }
+        &--item-b {
+          grid-column: 2;
+          grid-row: 1;
+          height: 300px;
+        }
+        &--item-c {
+          grid-column: 1;
+          grid-row: 2;
+        }
+        &--item-d {
+          grid-column: 2;
+          grid-row: 2;
+        }
+      }
+
+      .swiper-wrapper {
+        height: 705px;
+      }
+      .swiper-pagination-progressbar {
+        width: 240px;
+        bottom: 0;
+        top: initial;
+        left: 0;
+      }
+    }
+  }
+  .scrolling-wrapper-light {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    &::before {
+      position: sticky;
+      margin-left: 50%;
+      width: calc(100% - 50%);
+      height: 400px;
+      content: "";
+      top: 0;
+      z-index: 99;
+      right: 0;
+      @include gradient($list-b);
+
+      @include breakpoint(lp) {
+        height: 300px;
+      }
+      @include breakpoint(sm) {
+        position: inherit;
+        display: none;
+      }
+    }
+    .sticky-box {
+      height: calc(100vh - 100px);
+      position: -webkit-sticky;
+      position: sticky;
+      top: 120px;
+      @include flex-center;
+      flex-direction: column;
+
+      @include breakpoint(sm) {
+        height: auto;
+        @include margin(0, 0, 100px, 0);
+      }
+
+      &::before {
+        @include font-size(700px);
+        font-family: $museo_sans700;
+        display: block;
+        content: "0";
+        position: absolute;
+        z-index: -1;
+        right: 100px;
+        background: -webkit-linear-gradient(
+          -90deg,
+          $grey-color-2 25%,
+          $grey-color-2 25%,
+          $white-color 50%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-stroke: 3px transparent;
+        color: $white-color;
+
+        @include breakpoint(sm) {
+          @include font-size(400px);
+          right: 0;
+        }
+        @include breakpoint(md) {
+          @include font-size(400px);
+          right: 0;
+        }
+      }
+      .text-wrap {
+        position: relative;
+        height: 200px;
+        @include breakpoint(sm) {
+          height: auto;
+        }
+        .sm-text {
+          @include font-size(16px);
+          color: $black-color;
+        }
+        .lg-text {
+          color: $black-color;
+          @include font-size(300px);
+          font-family: $museo_sans700;
+
+          @include breakpoint(sm) {
+            @include font-size(150px);
+          }
+          @include breakpoint(md) {
+            @include font-size(150px);
+          }
+        }
+      }
+    }
+    .srolling-items {
+      &__item {
+        @include margin(0, 0, 230px, 0);
+        h3 {
+          @include font-size(31px);
+          text-align: right;
+
+          @include breakpoint(sm) {
+            @include font-size(25px);
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+  .scrolling-wrapper-dark {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    &::before {
+      position: sticky;
+      width: 50%;
+      height: 400px;
+      content: "";
+      top: 0;
+      z-index: 99;
+      left: 0;
+      @include gradient($list-c);
+
+      @include breakpoint(lp) {
+        height: 300px;
+      }
+      @include breakpoint(sm) {
+        position: inherit;
+        display: none;
+      }
+    }
+    .sticky-box {
+      height: calc(100vh - 100px);
+      position: -webkit-sticky;
+      position: sticky;
+      top: 120px;
+      @include flex-center;
+      flex-direction: column;
+
+      @include breakpoint(sm) {
+        height: auto;
+        @include margin(0, 0, 100px, 0);
+      }
+
+      &::before {
+        @include font-size(700px);
+        font-family: $museo_sans700;
+        display: block;
+        content: "#";
+        position: absolute;
+        z-index: -1;
+        right: 100px;
+        background: -webkit-linear-gradient(
+          -90deg,
+          $brand-color 25%,
+          $brand-color 25%,
+          $dark-grey-color 50%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-stroke: 3px transparent;
+
+        @include breakpoint(sm) {
+          @include font-size(400px);
+          right: 0;
+        }
+        @include breakpoint(md) {
+          @include font-size(400px);
+          right: 0;
+        }
+      }
+      .text-wrap {
+        position: relative;
+        display: flex;
+        height: 200px;
+
+        @include breakpoint(sm) {
+          height: auto;
+        }
+
+        .sm-text {
+          @include font-size(16px);
+          color: $white-color;
+          position: absolute;
+          left: -80px;
+          @include transform(rotate(-90deg));
+          bottom: -60px;
+        }
+        .lg-text {
+          color: $white-color;
+          @include font-size(300px);
+          font-family: $museo_sans700;
+          @include margin(0, 0, 0, 0);
+
+          @include breakpoint(sm) {
+            @include font-size(150px);
+            right: 0;
+          }
+          @include breakpoint(md) {
+            @include font-size(150px);
+          }
+        }
+      }
+    }
+    .srolling-items {
+      position: relative;
+      &__item {
+        @include margin(0, 0, 230px, 0);
+        color: $white-color;
+        h3 {
+          @include font-size(31px);
+          font-family: $museo_sans700;
+        }
+        h4 {
+          @include font-size(25px);
+          color: $grey-color-1;
+        }
+      }
+    }
+  }
+}

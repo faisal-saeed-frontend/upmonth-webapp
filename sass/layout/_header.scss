@@ -1,11 +1,27 @@
 header {
-  position: fixed;
-  width: 100%;
-  z-index: 999;
-  background: $white-color;
-  border-bottom: 1px solid $border-color;
-  height: 0;
-  top: -200px;
+  &.primary {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    background: $white-color;
+    border-bottom: 1px solid $border-color;
+    height: 0;
+    top: -200px;
+
+    @include breakpoint(sm) {
+      display: none;
+    }
+  }
+
+  &.secondary {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    background: $white-color;
+    border-bottom: 1px solid $border-color;
+    height: 100px;
+    top: 0;
+  }
 
   .navbar {
     @include flex-center;
@@ -15,6 +31,9 @@ header {
       height: 70px;
     }
 
+    @include breakpoint(md) {
+      height: 70px;
+    }
     .logo {
       background: url(../images/new_upmonth_logo_blue.svg) no-repeat;
       background-size: 85px 50px;
@@ -23,6 +42,7 @@ header {
     }
     .menu {
       margin-left: auto;
+
       ul {
         @include flex-center-vert;
         li {
@@ -57,6 +77,10 @@ header {
 
           &:last-child {
             @include margin(0, 0, 0, 150px);
+
+            @include breakpoint(md) {
+              @include margin(0, 0, 0, 0);
+            }
           }
         }
       }
@@ -64,30 +88,30 @@ header {
   }
 }
 
-header.header-scroll {
-  top: 0;
-  height: 100px;
+.header-primary-scroll {
+  top: 0 !important;
+  height: 100px !important;
   @include transition;
   opacity: 10;
   visibility: visible;
-
   @include breakpoint(lp) {
     height: 70px;
   }
-
+  @include breakpoint(md) {
+    height: 70px !important;
+  }
   li {
     animation: fadeInTop 0.7s ease forwards;
     animation-delay: 0.35s;
   }
 }
-
-header.header-scroll li:nth-of-type(2) {
+.header-primary-scroll li:nth-of-type(2) {
   animation-delay: 0.4s;
 }
-header.header-scroll li:nth-of-type(3) {
+.header-primary-scroll li:nth-of-type(3) {
   animation-delay: 0.45s;
 }
-header.header-scroll li:nth-of-type(4) {
+.header-primary-scroll li:nth-of-type(4) {
   animation-delay: 0.5s;
 }
 @keyframes fadeInBottom {
